@@ -30,7 +30,7 @@ outward mass flux=  -0.004
 Initial condition –-> hydrostatic head = “-19” and density = 1000
 Independent variable –porosity = 0.45, permeability = 4.5 e-12
 
-* See results and demonstartion in attached powerpoint
+* See results and demonstration in attached powerpoint
 
 ## For TR00 -- Coupled Surface and Subsurface flow (Richards flow + overland flow)
 This demo is a 3D domain with coarse mesh to demonstrate how water moves from surface to subsurface
@@ -49,10 +49,42 @@ surface-mass_source =Function-tabular – {0,43200},{3e-02,0}
 
 source-Molar_density = 55347.378, surface-manning_coefficient = 0.01986, surface-temperature = 274.65, base_porosity = 0.35, surface-Relative_permeability = 1, mass_density=997, viscosity – 0.00089, permeability = 1.052888e-12, van Genuchten; alpha = 0.00010224, n=2, residual saturation = 0.2, saturation smoothing interval= 0
 
-* See results and demonstartion in attached powerpoint
+* See results and demonstration in attached powerpoint
 
 ## How to generate custom mesh
+https://github.com/heglab/ATS-workflow/blob/main/mesh_generator.ipynb
 
+* this is a simple mesh modified from https://github.com/amanzi/ats-short-course/blob/main/02_model_setup/simple_meshing.ipynb
+* for much more complex watershed mesh see https://github.com/amanzi/ats-short-course/blob/main/02_model_setup/mesh_coweeta_demo.ipynb
 
-## For case of infiltration with growing mesh --  
+% You can modify to suit your case; usually for a case of growing mesh
+
+## For case of infiltration with growing mesh --  TR03t/TR03time
+Imported mesh
+
+Cycle = 18000s (5hrs)/780000s (9 days)
+
+PK solved = Richards flow + surface flow (coupled)
+
+Surface mass source = 5.5e-06 for 12000s (3.3hrs)/5.5e-06 for 604000s (7days)
+
+Initial condition –subsurface domain–Function_linear = 101325(atm pressure); [0,0,0,   -80]; [0,0,0,-9777.2301] - surface – “initialise surface head from subsurface”
+
+Boundary condition @ subsurface no flow, @ surface critical depth 
+
+source-Molar_density = 55347.378, surface-manning_coefficient = 0.01986, surface-temperature = 274.65, base_porosity = 0.4, surface-Relative_permeability = 1, mass_density=997, viscosity – 0.00089, permeability = 1.052888e-13, van Genuchten; alpha = 0.00010224, n=2, residual saturation = 0.2, saturation smoothing interval= 0
+
+## Multiple layers with distinct parameters within the layer
+
+## GEnerating the surface elevation from DEM
+
+## Heterogeneous permeability layer (Different permeability within each layer)
+
+## Plotting the result
+
+## Generating ensemble for sensitivity analysis and parameter estimation
+
+## Plotting ensemble result
+
+## Case of Surface flow + subsurface flow + solute transport
 
